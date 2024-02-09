@@ -5,8 +5,15 @@
 </head>
 <body>
 
-<h1>This is a Heading</h1>
+<h1 id="pizza">This is a Heading</h1>
 <p>This is a paragraph.</p>
+<button id="button">click</button>
 
 </body>
 </html> 
+
+<script>
+  document.getElementById("button").onclick = function() {
+    document.getElementById("pizza").InnerHTML = "i like pizza";
+  }
+</script>
