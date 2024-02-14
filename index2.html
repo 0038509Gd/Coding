@@ -11,14 +11,26 @@ h1 {
 }
 </style>
 </head>
-<body>
+<body>  
 
-<h1>Welcom To "This Chat"!</h1>
-<label for="Mesage"></label>
-<input type="text" id="Mesage" name="Mesage">
-<button type="button"
-onclick=>
-Send</button>
+<?php
+// define variables and set to empty values
+$emailErr = "";
+$email = "";
+?>
+
+<h2>Welcom To "This Chat"!</h2>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);"> 
+<input type="text" name="email">
+  <span class="error"> <?php echo $emailErr;?></span>
+  <br><br>
+  <input type="submit" name="submit" value="Send">  
+</form>
+
+<?php
+echo $email;
+?>
+
 </body>
 </html>
 <script>
