@@ -183,7 +183,7 @@ function intro() {
             } else if (Var("Hobbie" + loopnum).includes("strat")) {
               Set("Hobbie" + loopnum, "stratGames ");
             }
-          } else if (Var("Hobbies" + loopnum).includes("wildernes")||Var("Hobbie" + loopnum).includes("hiking")) {
+          } else if (Var("Hobbies" + loopnum).includes("woods")||Var("Hobbie" + loopnum).includes("hiking")) {
             Set("Hobbie" + loopnum, "woodlandAdventure ");
           } else if (Var("Hobbie" + loopnum).includes("animals")) {
             Set("Hobbies" + loopnum, "zooPerson ");
@@ -232,7 +232,31 @@ function chat() {
   var stratGamer = getHobbie("stratGames");
   var woodsKid = getHobbie("woodlandAdventure");
   var likesAnimals = getHobbie("zooPerson");
-  var likesBoys = (getHobbie("By")||);
-  var likesGirls = (||);
-}
+  var likesBoys = (getHobbie("By")||(getHobbie("Strait") && getGender("Female")||getHobbie("Gay") && getGender("Male")));
+  var likesGirls = (getHobbie("By")||(getHobbie("Strait") && getGender("Male")||getHobbie("Gay") && getGender("Female")));
+  var cook = getHobbie("Cooking");
+  var gardener = getHobbie("Gardening");
+  var bookWorm = getHobbie("Books");
+  for (var loop = 0;loop < 1;loop++) {
+    var topic = prompt("What Would You Like To Talk About?(pleas use key words)");
+    if (topic == "null"||topic == "") {
+      alert("Alert!\nInvalid Input!");
+      loop--
+    } else if (topic.includes("game")) {
+      if (topic.includes("computer")||topic.includes("vid")) {
+      } else if (topic.includes("strat")) {
+      }
+    } else if (topic.includes("animal")) {
+    } else if (topic.includes("hiking")||topic.includes("woods")) {
+    } else if (topic.includes("boy")) {
+    } else if (topic.includes("girl")) {
+    } else if (topic.includes("cook")||topic.includes("baking")) {
+    } else if (topic.includes("plant"||topic.includes("garden"))) {
+    } else if (topic.includes("book")) {
+    } else {
+      if ("Your Response Did Not Mach Any Of The Current Topics. Would You Like To Suggest A New Topic?") {
+        
+      }
+    }
+  }
 </script></body></html>
