@@ -1,0 +1,238 @@
+<!DOCTYPE html><html><body><p id="demo"></p><script>
+function getHobbie(hobbie) {
+  return Var("Hobbies").includes(hobbie);
+}
+function getGender(gender) {
+  return Var("Gender") == gender;
+}
+function Var(name) {
+	return localStorage.getItem(name);
+}
+function Set(name, value) {
+	localStorage.setItem(name, value);
+}
+function Change(name, x, num) {
+	if (x == "+/-") {
+      Set(name, Var(name) + num);
+    } else if (x == "x") {
+      Set(name, Var(name) * num);
+    } else if (x == "/") {
+      Set(name, Var(name) / num);
+    } else if (x == "*") {
+      Set(name, Var(name) ** num);
+    } else if (x == "/*") {
+      Set(name, Var(name) ** 1/num);
+    }
+}
+
+function checkInfo() {
+  if (confirm("Would You Like To Check Your Information?")) {
+    if (confirm("Your Name Is\n" + Var("Name"))) {
+    } else {
+      for (var loop = 0; loop < 1; loop++) {
+        Set("Name", prompt("What Is Your Name?"));
+        if (Var("Name") == "null"||Var("Name") == "") {
+          alert("Alert!\nInvalid Response");
+          loop--
+        }
+      }
+    }
+    if (confirm("Your Gender Is\n" + Var("Gender"))) {
+    } else {
+      for (var loop = 0; loop < 1; loop++) {
+        Set("Gender", prompt("What Is Your Gender?"));
+        if (Var("Gender") == "null"||Var("Gender") == "") {
+          alert("Alert!\nInvalid Response");
+          loop--
+        } else if (Var("Gender") == "Man"||Var("Gender") == "Boy"||Var("Gender") == "Masculine"||Var("Gender") == "Male") {
+    	    Set("Gender", "Male");
+        } else if (Var("Gender") == "Woman"||Var("Gender") == "Girl"||Var("Gender") == "Femanine"||Var("Gender") == "Female") {
+    	    Set("Gender", "Female");
+        } else if (Var("Gender") == "Chick") {
+    	    Set("Gender", "Female");
+          Sexy();
+        } else {
+          alert("Alert!\nInvalid/Unantisipaded Gender");
+        }
+      }
+      Set("Hobbies", "");
+      for (var loop = 0; loop < loopnum; loop++) {
+        if (confirm("Hobby" + loop + " is " + Var("Hobbie" + loop))) {
+        } else {
+          Set("Hobbie" + loop, prompt("What Are You Interested In?"));
+          if (Var("Hobbie" + loop) == null||Var("Hobbie" + loop) == "") {
+            alert("Alert!\nInvalid Input!");
+            loop--
+          } else {
+            if (Var("Hobbie" + loop).includes("games")) {
+              if (Var("Hobbie" + loop).includes("computer")||Var("Hobbie" + loop).includes("vid")) {
+                Set("Hobbie" + loop, "vidGames");
+              } else if (Var("Hobbie" + loop).includes("strat")) {
+                Set("Hobbie" + loop, "stratGames");
+              }
+            } else if (Var("Hobbies" + loop).includes("wildernes")||Var("Hobbie" + loop).includes("hiking")) {
+              Set("Hobbie" + loop, "woodlandAdventure");
+            } else if (Var("Hobbie" + loop).includes("animals")) {
+              Set("Hobbies" + loop, "zooPerson");
+            } else if (Var("Hobbie" + loop).includes("Boys") && Var("Hobbie" + loop).includes("Girls")) {
+              Set("Hobbie" + loop, "By");
+            } else if (Var("Hobbie" + loop).includes("Boys")) {
+              if (Var("Gender") == "Girl") {
+                Set("Hobbie" + loop, "Strait");
+                var b = prompt("How Interested? 1-10");
+                if (b > 4) {
+                  Sexy();
+                }
+              } else {
+                Set("Hobbie" + loop, "Gay");
+              }
+            } else if (Var("Hobbie" + loop).includes("Girls")) {
+              if (Var("Gender") == "Boy") {
+                Set("Hobbie" + loop, "Strait");
+              } else {
+                Set("Hobbie" + loop, "Gay");
+              }
+            } else if (Var("Hobbie" + loop).includes("Cooking")||Var("Hobbie" + loop).includes("Baking")) {
+              Set("Hobbie" + loop, "Cooking");
+            } else if (Var("Hobbie" + loop).includes("Gardening")||Var("Hobbie" + loop).includes("Plants")) {
+              Set("Hobbie" + loop, "Gardening");
+            } else if (Var("Hobbie" + loop).includes("Books")||Var("Hobbie" + loop).includes("Reading")) {
+              Set("Hobbie" + loop, "Books");
+            } else if (Var("Hobbie" + loop).includes("Sex")) {
+              if (confirm("Do You Like Boys?")) {
+                Sexy();
+              }
+            } else {
+              alert("Alert!\nInvalid/Unexpected Input!");
+            }
+          }
+        }
+        Change("Hobbies", "+/-", Var("Hobbie" + loop));
+        localStorage.removeItem("Hobbie" + loop);
+      }
+    }
+  } else {
+    for (var loop = 0; loop < loopnum; loop++) {
+    Change("Hobbies", "+/-", Var("Hobbie" + loop));
+    localStorage.removeItem("Hobbie" + loop);
+    }
+  }
+}
+function Sexy() {
+  if (confirm("Are You Sexy?")) {
+		if (confirm("Are You Single?")) {
+    	var b = prompt("Where Are You?");
+      if (b > 0) {
+      	if (confirm("May I Rape You?")) {
+          location.replace("javascript:alert('I'm On My Way!\n:)');");
+        } else {
+          window.reload();
+        }
+      } else {
+      	window.reload();
+      }
+    } else {
+      window.reload();
+    }
+  }
+}
+function intro() {
+  if (false) {
+    chat();
+  } else {
+    if (confirm("On Popups Ok = Yes, Cancel = No, Only Put One Answer Per Questian, Start Words With A Cappital Letter\nThank You!")) {
+      for (var loop = 0; loop < 1; loop++) {
+        Set("Name", prompt("What Is Your Name?"));
+        if (Var("Name") == "null"||Var("Name") == "") {
+        	alert("Alert!\nInvalid Response");
+          loop--
+        }
+      }
+      for (var loop = 0; loop < 1; loop++) {
+        Set("Gender", prompt("What Is Your Gender?"));
+        if (Var("Gender") == "null"||Var("Gender") == "") {
+          alert("Alert!\nInvalid Response");
+          loop--
+        } else if (Var("Gender") == "Man"||Var("Gender") == "Boy"||Var("Gender") == "Masculine"||Var("Gender") == "Male") {
+    	  Set("Gender", "Male");
+        } else if (Var("Gender") == "Woman"||Var("Gender") == "Girl"||Var("Gender") == "Femanine"||Var("Gender") == "Female") {
+      	  Set("Gender", "Female");
+        } else if (Var("Gender") == "Chick") {
+      	  Set("Gender", "Female");
+      	  Sexy();
+        } else {
+          alert("Alert!\nInvalid/Unantisipaded Gender");
+        }
+      }
+      for (var loop = 0; loop < 1; loop++) {
+        Set("hobbieNum", prompt("What Are You Interested In?"));
+      	if (Var("hobbieNum") == "null"||Var("hobbieNum") == ""||Var("hobbieNum") !> 0) {
+          alert("Alert!\nInvalid Input!");
+          loop--
+        }
+      }
+      for (var loopnum = 0; loopnum < Var("hobbieNum"); loopnum++) {
+        Set("Hobbie" + loopnum, prompt("What Are You Interested In?"));
+        if (Var("Hobbie" + loopnum) == "null"||Var("Hobbie" + loopnum) == "") {
+          alert("Alert!\nInvalid Input!");
+          loopnum--
+        } else {
+          if (Var("Hobbie" + loopnum).includes("games")) {
+          	if (Var("Hobbie" + loopnum).includes("computer")||Var("Hobbie" + loopnum).includes("vid")) {
+              Set("Hobbie" + loopnum, "vidGames ");
+            } else if (Var("Hobbie" + loopnum).includes("strat")) {
+              Set("Hobbie" + loopnum, "stratGames ");
+            }
+          } else if (Var("Hobbies" + loopnum).includes("wildernes")||Var("Hobbie" + loopnum).includes("hiking")) {
+            Set("Hobbie" + loopnum, "woodlandAdventure ");
+          } else if (Var("Hobbie" + loopnum).includes("animals")) {
+            Set("Hobbies" + loopnum, "zooPerson ");
+          } else if (Var("Hobbie" + loopnum).includes("Boys") && Var("Hobbie" + loopnum).includes("Girls")) {
+            Set("Hobbie" + loopnum, "By ");
+          } else if (Var("Hobbie" + loopnum).includes("Boys")) {
+            if (Var("Gender") == "Girl") {
+              Set("Hobbie" + loopnum, "Strait ");
+              var b = prompt("How Interested? 1-10");
+              if (b > 4) {
+                Sexy();
+              }
+            } else {
+              Set("Hobbie" + loopnum, "Gay ");
+            }
+          } else if (Var("Hobbie" + loopnum).includes("Girls")) {
+            if (Var("Gender") == "Boy") {
+              Set("Hobbie" + loopnum, "Strait ");
+            } else {
+              Set("Hobbie" + loopnum, "Gay ");
+            }
+          } else if (Var("Hobbie" + loopnum).includes("Cooking")||Var("Hobbie" + loopnum).includes("Baking")) {
+            Set("Hobbie" + loopnum, "Cooking ");
+          } else if (Var("Hobbie" + loopnum).includes("Gardening")||Var("Hobbie" + loopnum).includes("Plants")) {
+            Set("Hobbie" + loopnum, "Gardening ");
+          } else if (Var("Hobbie" + loopnum).includes("Books")||Var("Hobbie" + loopnum).includes("Reading")) {
+          	Set("Hobbie" + loopnum, "Books ");
+          } else if (Var("Hobbie" + loopnum).includes("Sex")) {
+          	if (confirm("Do You Like Boys?")) {
+              Sexy();
+            }
+            localStorage.removeItem("Hobbie" + loopnum);
+            loopnum--
+          } else {
+            alert("Alert!\nInvalid/Unexpected Input!");
+          }
+        }
+      }
+    }
+  }
+}
+function chat() {
+  var boy = getGender("Male");
+  var girl = getGender("Female");
+  var vidGamer = getHobbie("vidGames");
+  var stratGamer = getHobbie("stratGames");
+  var woodsKid = getHobbie("woodlandAdventure");
+  var likesAnimals = getHobbie("zooPerson");
+  var likesBoys = (getHobbie("By")||);
+  var likesGirls = (||);
+}
+</script></body></html>
